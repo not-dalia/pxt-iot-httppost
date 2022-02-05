@@ -155,25 +155,17 @@ namespace ESP8266_IoT {
     //% write_api_key.defl=your_write_api_key
     //% expandableArgumentMode="enabled"
     //% subcategory="ThingSpeak" weight=85
-    export function setData(write_api_key: string, n1: number = 0, n2: number = 0, n3: number = 0, n4: number = 0, n5: number = 0, n6: number = 0, n7: number = 0, n8: number = 0) {
-        TStoSendStr = "GET /update?api_key="
-            + write_api_key
-            + "&field1="
-            + n1
-            + "&field2="
-            + n2
-            + "&field3="
-            + n3
-            + "&field4="
-            + n4
-            + "&field5="
-            + n5
-            + "&field6="
-            + n6
-            + "&field7="
-            + n7
-            + "&field8="
-            + n8
+    export function setData(write_api_key: string, n1: string, n2: number, n3: string, n4: string, n5: string, n6: number = 0, n7: number = 0, n8: number = 0) {
+        TStoSendStr = `GET /update?api_key=${write_api_key}`
+        if (n1 != "") { TStoSendStr += `&field1=${n1}` }
+        if (n2 != 0) { TStoSendStr += `&field2=${n2}` }
+        if (n3 != "") { TStoSendStr += `&field3=${n3}` }
+        if (n4 != "") { TStoSendStr += `&field4=${n4}` }
+        if (n5 != "") { TStoSendStr += `&field5=${n5}` }
+        if (n6 != 0) { TStoSendStr += `&field6=${n6}` }
+        if (n7 != 0) { TStoSendStr += `&field7=${n7}` }
+        if (n8 != 0) { TStoSendStr += `&field8=${n8}` }
+
     }
 
     /**
