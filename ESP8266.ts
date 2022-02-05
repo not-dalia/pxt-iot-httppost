@@ -9,6 +9,8 @@ namespace ESP8266_IoT {
         UploadKidsIot,
         DisconnectKidsIot,
         ConnectMqtt,
+        postIFTTT,
+        PostHTTP
     }
 
     export enum KidsIotSwitchState {
@@ -64,7 +66,8 @@ namespace ESP8266_IoT {
         UploadKidsIot: Cmd.UploadKidsIot,
         DisconnectKidsIot: Cmd.DisconnectKidsIot,
         ConnectMqtt: Cmd.ConnectMqtt,
-        PostIFTTT: 255
+        PostIFTTT: Cmd.postIFTTT,
+        postHTTP: Cmd.PostHTTP
     }
     const KidsIotEventSource = 3100
     const KidsIotEventValue = {
@@ -356,6 +359,21 @@ namespace ESP8266_IoT {
         let sendST = sendST1 + sendST2
         sendAT(sendST, 1000)
         control.waitForEvent(EspEventSource, EspEventValue.PostIFTTT)
+    }
+
+    //////////----------------------------------- POST--------------------------------/////////
+
+    /**
+     * post http
+     */
+    //% subcategory=POST weight=7
+    //% blockId=postHTTP block="post HTTP to|url:%url with|value1:%value value2:%value2 value3:%value3"
+    export function postHTTP(url:string, value1: string, value2: string, value3: string): void {
+        let sendST1 = "AT+HTTPCLIENT=3,1,\"" + url + "\",,,2,"
+        let sendST2 = "\"{\\\"value1\\\":\\\"" + value1 + "\\\"\\\,\\\"value2\\\":\\\"" + value2 + "\\\"\\\,\\\"value3\\\":\\\"" + value3 + "\\\"}\""
+        let sendST = sendST1 + sendST2
+        sendAT(sendST, 1000)
+        control.waitForEvent(EspEventSource, EspEventValue.postHTTP)
     }
 
     /**

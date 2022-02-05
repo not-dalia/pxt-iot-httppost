@@ -1,5 +1,5 @@
 {
-    "name": "ESP8266_IoT",
+    "name": "TEST_ESP8266_IoT",
     "version": "2.1.1",
     "description": "ESP8266 IoT package by ELECFREAKS, CLASSROOM and Tinkercademy.",
     "license": "MIT",
@@ -9,7 +9,6 @@
     "files": [
         "README.md",
         "ESP8266.ts",
-        "_locales/zh/ESP8266_IoT-strings.json",
         "_locales/ESP8266_IoT-strings.json"
     ],
     "testFiles": [

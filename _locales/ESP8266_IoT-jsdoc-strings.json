@@ -9,6 +9,7 @@
   "ESP8266_IoT.initWIFI": "Initialize ESP8266 module",
   "ESP8266_IoT.kidsiotState": "Check if ESP8266 successfully connected to KidsIot",
   "ESP8266_IoT.postIFTTT": "post ifttt",
+  "ESP8266_IoT.postHTTP": "post HTTP",
   "ESP8266_IoT.sendmesMQTT": "send message",
   "ESP8266_IoT.setData": "Connect to ThingSpeak and set data.",
   "ESP8266_IoT.setIFTTT": "set ifttt",
